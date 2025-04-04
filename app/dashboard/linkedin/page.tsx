@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 
 export default function LinkedInPage() {
     const [result, setResult] = useState("")
-      const [type, setType] = useState<catType["cat"]>("promotional-mail")
+      const [type, setType] = useState<catType["cat"]>("professional-linkedin")
   
     const handleSubmit = async (input: string) => {
         if (!input.trim()) return
