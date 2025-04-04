@@ -3,26 +3,47 @@ import { DashboardHeader } from "@/components/dashboard-header"
 import { ContentTypeSelector } from "@/components/content-type-selector"
 import { InputBar } from "@/components/input-bar"
 import { OutputEditor } from "@/components/output-editor"
+import { useEffect, useState } from "react"
+import { catType, getResponse } from "@/actions/server"
 
 export default function MailPage() {
+  const [result, setResult] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [type, setType] = useState<catType["cat"]>("promotional-mail")
+      const handleSubmit = async (input: string) => {
+          if (!input.trim()) return
+          console.log("Started")
+          const res = await getResponse(input, type)
+          console.log(res)
+          setResult(res)
+  
+        }
+  
+        useEffect(() => {
+          console.log("Updated")
+  }, [result])
+
+
   return (
     <>
       <DashboardHeader title="Email" />
       <main className="flex-1 overflow-auto p-6">
         <ContentTypeSelector
           contentType="mail"
+          setType={(type: string) => setType(type as catType["cat"])}
           options={[
-            { id: "formal", label: "Formal" },
-            { id: "informal", label: "Informal" },
-            { id: "professional", label: "Professional" },
-            { id: "outreach", label: "Outreach" },
+            { id: "promotional-mail", label: "Promotional" },
+            { id: "informal-mail", label: "Informal" },
+            { id: "outreach-mail", label: "Outreach" },
           ]}
         />
         <div className="mt-6 rounded-lg border bg-card p-6 shadow-sm">
-          <OutputEditor placeholder="Your email will appear here..." initialContent="" />
+          <OutputEditor placeholder="Your email will appear here..." initialContent={result} />
         </div>
       </main>
-      <InputBar onStartRecording={() => {}} />
+      <InputBar 
+      handleSubmit={handleSubmit}
+      onStartRecording={() => {}} />
     </>
   )
 }

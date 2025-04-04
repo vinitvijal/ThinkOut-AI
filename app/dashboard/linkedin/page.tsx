@@ -3,15 +3,17 @@ import { DashboardHeader } from "@/components/dashboard-header"
 import { ContentTypeSelector } from "@/components/content-type-selector"
 import { InputBar } from "@/components/input-bar"
 import { OutputEditor } from "@/components/output-editor"
-import { getResponse } from "@/actions/server"
+import { catType, getResponse } from "@/actions/server"
 import { useEffect, useState } from "react"
 
 export default function LinkedInPage() {
     const [result, setResult] = useState("")
+      const [type, setType] = useState<catType["cat"]>("promotional-mail")
+  
     const handleSubmit = async (input: string) => {
         if (!input.trim()) return
         console.log("Started")
-        const res = await getResponse(input)
+        const res = await getResponse(input, type)
         console.log(res)
         setResult(res)
 
@@ -27,11 +29,12 @@ export default function LinkedInPage() {
       <main className="flex-1 overflow-auto p-6">
         <ContentTypeSelector
           contentType="linkedin"
+          setType={(type: string) => setType(type as catType["cat"])}
           options={[
-            { id: "professional", label: "Professional" },
-            { id: "casual", label: "Casual" },
-            { id: "storytelling", label: "Storytelling" },
-            { id: "thought-leadership", label: "Thought Leadership" },
+            { id: "professional-linkedin", label: "Professional" },
+            { id: "casual-linkedin", label: "Casual" },
+            { id: "story-linkedin", label: "Storytelling" },
+            { id: "thought-linkedin", label: "Thought Leadership" },
           ]}
         />
         <div className="mt-6 rounded-lg border bg-card p-6 shadow-sm">

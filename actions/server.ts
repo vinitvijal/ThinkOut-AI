@@ -1,22 +1,27 @@
 'use server'
 
 import { openai } from '@ai-sdk/openai'
-import { streamText } from 'ai';
 import { generateText } from 'ai';
+import prompts from "@/app/prompts.json"
 
-export async function getStreamedResponse(prompt: string) {
-    const result = streamText({
-        model: openai('gpt-4o-mini'),
-        prompt: prompt
-      });
-    
-    return result.toDataStreamResponse();
+export interface catType {
+    cat: "promotional-mail" | "informal-mail" | "outreach-mail" | "professional-linkedin" | "casual-linkedin" | "story-linkedin" | "thought-linkedin"
 }
 
-export async function getResponse(prompt: string) {
+
+export async function getResponse(prompt: string, category: catType['cat']) {
+    
+    var textTemplate = prompts[category]
+
     const { text } = await generateText({
-        model: openai('gpt-4o-mini'),
-        prompt,
-      });
-    return text;      
+      model: openai('gpt-4o-mini'),
+      prompt: (textTemplate).replace("{context}", prompt),
+    });
+    
+    return text
+    // if (!textTemplate) {
+    //     throw new Error("Invalid prompt template");
+    // }
+    // const text = textTemplate.replace("{content}", prompt);
+    // return text;      
 }
