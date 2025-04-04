@@ -41,7 +41,7 @@ export function DashboardSidebar() {
   ]
 
   return (
-    <Sidebar className="w-64">
+    <Sidebar side="left" className="w-64 " variant="sidebar">
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-3">
           <Sparkles className="h-6 w-6 text-[#7c3aed]" />

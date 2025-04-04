@@ -15,10 +15,15 @@ export default function DashboardLayout({
   const [isRecording, setIsRecording] = useState(false)
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen">
-        <DashboardSidebar />
-        <div className="flex-1 flex flex-col">{children}</div>
+    <SidebarProvider open={true}>
+      <div className="a flex min-h-screen w-screen border">
+        <div className=" h-screen w-64">
+            <DashboardSidebar />
+        </div>
+        <div className=" flex-1 overflow-y-auto bg-background min-h-screen">
+            {children}
+        </div>
+        
         {isRecording && <MicrophoneAnimation onClose={() => setIsRecording(false)} />}
       </div>
     </SidebarProvider>

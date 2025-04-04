@@ -43,8 +43,8 @@ export function OutputEditor({ placeholder, initialContent }: OutputEditorProps)
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-end gap-2">
+    <div className="space-y-4 flex flex-col  flex-1 h-full">
+      <div className="aa flex justify-end gap-2">
         <Button variant="outline" size="sm" onClick={handleCopy} disabled={!content}>
           {copied ? (
             <>
@@ -68,12 +68,12 @@ export function OutputEditor({ placeholder, initialContent }: OutputEditorProps)
         </Button>
       </div>
 
-      <div className="min-h-[300px] rounded-md border">
+      <div className="min-h-[500px] flex-1 rounded-md border">
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder={placeholder}
-          className="h-full min-h-[300px] w-full resize-none rounded-md border-0 bg-transparent p-4 focus:outline-none"
+          className="h-full min-h-[500px] w-full resize-none rounded-md border-0 bg-transparent p-4 focus:outline-none"
         />
       </div>
     </div>
