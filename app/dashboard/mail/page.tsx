@@ -5,12 +5,18 @@ import { InputBar } from "@/components/input-bar"
 import { OutputEditor } from "@/components/output-editor"
 import { useEffect, useState } from "react"
 import { catType, getResponse } from "@/actions/server"
+import { useUser } from "@clerk/nextjs"
 
 export default function MailPage() {
+  const { user } = useUser()
   const [result, setResult] = useState("")
   const [loading, setLoading] = useState(false)
   const [type, setType] = useState<catType["cat"]>("promotional-mail")
       const handleSubmit = async (input: string) => {
+        if (!user) return
+        const email = user.emailAddresses[0].emailAddress
+
+
           if (!input.trim()) return
           console.log("Started")
           const res = await getResponse(input, type)

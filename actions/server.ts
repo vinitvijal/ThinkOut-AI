@@ -29,7 +29,7 @@ async function addPromptToDB(prompt: string, category: string, response: string,
 
 
 
-export async function getResponse(prompt: string, category: catType['cat'], userId?: " " ) {
+export async function getResponse(prompt: string, category: catType['cat'], userId?: string ) {
     
     var textTemplate = prompts[category]
 
