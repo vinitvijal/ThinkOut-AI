@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { SidebarProvider } from "@/components/sidebar-provider"
 import { DashboardSidebar } from "@/components/dashboard-sidebar"
-import { MicrophoneAnimation } from "@/components/microphone-animation"
+import { MicrophoneAnimation } from "@/components/microphone"
 
 export default function DashboardLayout({
   children,

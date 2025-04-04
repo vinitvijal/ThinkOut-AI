@@ -41,11 +41,11 @@ export function DashboardSidebar() {
   ]
 
   return (
-    <Sidebar>
+    <Sidebar className="w-64">
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-3">
-          <Sparkles className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold">ThinkOut AI</span>
+          <Sparkles className="h-6 w-6 text-[#7c3aed]" />
+          <span className="text-xl font-extrabold">ThinkOut AI</span>
         </div>
         {isMobile && (
           <div className="px-2">
