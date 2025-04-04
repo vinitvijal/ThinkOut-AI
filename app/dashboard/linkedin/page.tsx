@@ -5,15 +5,22 @@ import { InputBar } from "@/components/input-bar"
 import { OutputEditor } from "@/components/output-editor"
 import { catType, getResponse } from "@/actions/server"
 import { useEffect, useState } from "react"
+import { useUser } from "@clerk/nextjs"
 
 export default function LinkedInPage() {
+    const {user} = useUser()
     const [result, setResult] = useState("")
       const [type, setType] = useState<catType["cat"]>("professional-linkedin")
   
     const handleSubmit = async (input: string) => {
+      if (!user) return
+      const email = user.primaryEmailAddress?.emailAddress
+      console.log(email)
+      console.log(user.emailAddresses)
+
         if (!input.trim()) return
         console.log("Started")
-        const res = await getResponse(input, type)
+        const res = await getResponse(input, type, email || "")
         console.log(res)
         setResult(res)
 

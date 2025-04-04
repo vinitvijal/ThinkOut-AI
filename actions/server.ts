@@ -29,7 +29,7 @@ async function addPromptToDB(prompt: string, category: string, response: string,
 
 
 
-export async function getResponse(prompt: string, category: catType['cat'], userId?: string ) {
+export async function getResponse(prompt: string, category: catType['cat'], userId: string ) {
     
     var textTemplate = prompts[category]
 
@@ -43,8 +43,7 @@ export async function getResponse(prompt: string, category: catType['cat'], user
     const model = 'gpt-4o-mini'
     const type = category.split("-")[0]
     const cat = category.split("-")[1]
-    const response = await addPromptToDB(prompt, cat, text, userId || "NA", tokens, model, type)
-    console.log(response)
+    const response = await addPromptToDB(prompt, cat, text, userId, tokens, model, type)
     console.log("Response added to DB")
 
     return text

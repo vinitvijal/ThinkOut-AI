@@ -14,12 +14,13 @@ export default function MailPage() {
   const [type, setType] = useState<catType["cat"]>("promotional-mail")
       const handleSubmit = async (input: string) => {
         if (!user) return
-        const email = user.emailAddresses[0].emailAddress
-
+        const email = user.primaryEmailAddress?.emailAddress
+        console.log(email)
+        console.log(user.emailAddresses)
 
           if (!input.trim()) return
           console.log("Started")
-          const res = await getResponse(input, type)
+          const res = await getResponse(input, type, email)
           console.log(res)
           setResult(res)
   
