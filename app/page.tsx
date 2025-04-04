@@ -4,11 +4,11 @@ import { ArrowRight, Mic, Sparkles, MessageSquare, Mail, FileText } from "lucide
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="flex min-h-screen flex-col justify-center">
+      <header className="sticky flex justify-center top-0 z-50 w-full border-b border-gray-700  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
+            <Sparkles className="h-6 w-6 text-[#7c3aed]" />
             <span className="text-xl font-bold">ThinkOut AI</span>
           </div>
           <nav className="hidden md:flex gap-6">
@@ -29,7 +29,7 @@ export default function LandingPage() {
               </Button>
             </Link>
             <Link href="/dashboard">
-              <Button size="sm">
+              <Button size="sm" className="bg-[#7c3aed]">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -37,11 +37,11 @@ export default function LandingPage() {
           </div>
         </div>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 flex items-center flex-col">
         <section className="container py-24 space-y-8 md:py-32">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Transform Your <span className="text-primary">Voice</span> & <span className="text-primary">Text</span>{" "}
+              Transform Your <span className="text-[#7c3aed]">Voice</span> & <span className="text-[#7c3aed]">Text</span>{" "}
               Into Professional Content
             </h1>
             <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
@@ -50,7 +50,7 @@ export default function LandingPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/dashboard">
-                <Button size="lg" className="h-12 px-8">
+                <Button size="lg" className="h-10 px-6 bg-[#7c3aed] text-white hover:bg-[#6b21a8]">
                   Start Creating
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -68,9 +68,9 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-              <div className="rounded-full bg-primary/10 p-4">
-                <Mic className="h-6 w-6 text-primary" />
+            <div className="flex flex-col items-center space-y-4 rounded-lg border border-gray-700 p-6 shadow-sm">
+              <div className="rounded-full bg-[#7c3aed]/10 p-4">
+                <Mic className="h-6 w-6 text-[#7c3aed]" />
               </div>
               <h3 className="text-xl font-bold">Voice to Text</h3>
               <p className="text-center text-muted-foreground">
@@ -78,9 +78,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-              <div className="rounded-full bg-primary/10 p-4">
-                <MessageSquare className="h-6 w-6 text-primary" />
+            <div className="flex flex-col items-center space-y-4 rounded-lg border border-gray-700 p-6 shadow-sm">
+              <div className="rounded-full bg-[#7c3aed]/10 p-4">
+                <MessageSquare className="h-6 w-6 text-[#7c3aed]" />
               </div>
               <h3 className="text-xl font-bold">LinkedIn Posts</h3>
               <p className="text-center text-muted-foreground">
@@ -88,9 +88,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-              <div className="rounded-full bg-primary/10 p-4">
-                <Mail className="h-6 w-6 text-primary" />
+            <div className="flex flex-col items-center space-y-4 rounded-lg border border-gray-700 p-6 shadow-sm">
+              <div className="rounded-full bg-[#7c3aed]/10 p-4">
+                <Mail className="h-6 w-6 text-[#7c3aed]" />
               </div>
               <h3 className="text-xl font-bold">Professional Emails</h3>
               <p className="text-center text-muted-foreground">
@@ -100,7 +100,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="models" className="container py-16 space-y-16 bg-muted/50 rounded-lg">
+        <section id="models" className="container py-16 space-y-16  rounded-lg">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Multiple AI Models</h2>
             <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
@@ -112,19 +112,19 @@ export default function LandingPage() {
             {["GPT-4o", "GPT-4o Mini", "Gemini", "Grok"].map((model) => (
               <div
                 key={model}
-                className="flex flex-col items-center space-y-4 rounded-lg border bg-background p-6 shadow-sm"
+                className="flex flex-col items-center space-y-4 rounded-lg border border-gray-700 bg-zinc-800/90 p-6 shadow-sm"
               >
-                <FileText className="h-6 w-6 text-primary" />
+                <FileText className="h-6 w-6 text-[#7c3aed]" />
                 <h3 className="text-lg font-bold">{model}</h3>
               </div>
             ))}
           </div>
         </section>
       </main>
-      <footer className="border-t py-8">
+      <footer className="border-t border-gray-700 py-8">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-primary" />
+            <Sparkles className="h-5 w-5 text-[#7c3aed]" />
             <span className="text-lg font-semibold">ThinkOut AI</span>
           </div>
           <p className="text-sm text-muted-foreground">© 2025 ThinkOut AI. All rights reserved.</p>
