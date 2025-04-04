@@ -2,11 +2,11 @@ import React from 'react'
 import { getResult } from './action'
 
 async function page() {
-    const res = await getResult("ramesh","i am good")
+    const res = await getResult("what is sobby","i am good", "", "")
     console.log(res)
   return (
     <div>
-      {res}
+      {res.toString()}
     </div>
   )
 }
