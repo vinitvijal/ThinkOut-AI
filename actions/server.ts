@@ -15,13 +15,9 @@ export async function getResponse(prompt: string, category: catType['cat']) {
 
     const { text } = await generateText({
       model: openai('gpt-4o-mini'),
-      prompt: (textTemplate).replace("{context}", prompt),
+      prompt: (textTemplate).replace("{context}", prompt) + " \n\n Answer in the same language as the input. \n\n Make sure to remove styling and formatting from the output. ",
     });
     
     return text
-    // if (!textTemplate) {
-    //     throw new Error("Invalid prompt template");
-    // }
-    // const text = textTemplate.replace("{content}", prompt);
-    // return text;      
+   
 }
