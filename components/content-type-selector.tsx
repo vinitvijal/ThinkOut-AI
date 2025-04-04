@@ -14,7 +14,7 @@ interface ContentTypeSelectorProps {
   setType: (type: string) => void
 }
 
-export function ContentTypeSelector({ contentType, options, setType }: ContentTypeSelectorProps) {
+export function ContentTypeSelector({ options, setType }: ContentTypeSelectorProps) {
   const [selectedOption, setSelectedOption] = useState(options[0]?.id || "")
 
   const handleOptionChange = (optionId: string) => {

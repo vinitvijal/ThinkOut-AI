@@ -49,8 +49,7 @@ export default function LinkedInPage() {
         </div>
       </main>
       <InputBar 
-      handleSubmit={handleSubmit}
-      onStartRecording={() => {}} />
+      handleSubmit={handleSubmit}/>
     </>
   )
 }

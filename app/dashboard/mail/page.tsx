@@ -10,7 +10,6 @@ import { useUser } from "@clerk/nextjs"
 export default function MailPage() {
   const { user } = useUser()
   const [result, setResult] = useState("")
-  const [loading, setLoading] = useState(false)
   const [type, setType] = useState<catType["cat"]>("promotional-mail")
       const handleSubmit = async (input: string) => {
         if (!user) return
@@ -20,7 +19,7 @@ export default function MailPage() {
 
           if (!input.trim()) return
           console.log("Started")
-          const res = await getResponse(input, type, email)
+          const res = await getResponse(input, type, email || "")
           console.log(res)
           setResult(res)
   
@@ -49,8 +48,7 @@ export default function MailPage() {
         </div>
       </main>
       <InputBar 
-      handleSubmit={handleSubmit}
-      onStartRecording={() => {}} />
+      handleSubmit={handleSubmit} />
     </>
   )
 }

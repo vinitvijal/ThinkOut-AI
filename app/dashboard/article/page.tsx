@@ -41,12 +41,11 @@ export default function ArticlePage() {
           ]}
         />
         <div className="mt-6 rounded-lg border bg-card p-6 shadow-sm">
-          <OutputEditor placeholder="Your article will appear here..." initialContent="" />
+          <OutputEditor placeholder="Your article will appear here..." initialContent={result} />
         </div>
       </main>
       <InputBar 
-        handleSubmit={handleSubmit}
-        onStartRecording={() => {}} />
+        handleSubmit={handleSubmit}/>
     </>
   )
 }

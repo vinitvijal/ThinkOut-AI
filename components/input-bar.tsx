@@ -3,20 +3,12 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Mic, Send } from "lucide-react"
+import { Send } from "lucide-react"
 
-interface InputBarProps {
-  onStartRecording: () => void
-}
 
-export function InputBar({ onStartRecording, handleSubmit }: InputBarProps & { handleSubmit: (input: string) => void }) {
+export function InputBar({ handleSubmit }: { handleSubmit: (input: string) => void }) {
     const [input, setInput] = useState("")
-    const [isRecording, setIsRecording] = useState(false)
 
-    const handleStartRecording = () => {
-        setIsRecording(true)
-        onStartRecording()
-    }
 
     return (
         <div className="sticky bottom-0 border-t bg-background p-4">
@@ -34,10 +26,6 @@ export function InputBar({ onStartRecording, handleSubmit }: InputBarProps & { h
                     }}
                 />
                 <div className="flex gap-2">
-                    <Button variant="outline" size="icon" onClick={handleStartRecording} className="h-10 w-10 shrink-0">
-                        <Mic className="h-5 w-5" />
-                        <span className="sr-only">Start recording</span>
-                    </Button>
                     <Button onClick={() => handleSubmit(input)} size="icon" className="h-10 w-10 shrink-0" disabled={!input.trim()}>
                         <Send className="h-5 w-5" />
                         <span className="sr-only">Send</span>

@@ -3,7 +3,7 @@
 import { SidebarTrigger } from "@/components/sidebar-provider"
 import { Button } from "@/components/ui/button"
 import { UserButton } from "@clerk/nextjs"
-import { User, Bell } from "lucide-react"
+import { Bell } from "lucide-react"
 
 interface DashboardHeaderProps {
   title: string
