@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Download, Copy, Check } from "lucide-react"
 
@@ -13,6 +13,13 @@ export function OutputEditor({ placeholder, initialContent }: OutputEditorProps)
   const [content, setContent] = useState(initialContent)
   const [copied, setCopied] = useState(false)
 
+  useEffect(() => {
+    if (initialContent) {
+      setContent(initialContent)
+    }
+  }
+  , [initialContent])
+  
   const handleCopy = async () => {
     if (!content) return
 

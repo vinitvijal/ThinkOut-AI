@@ -2,7 +2,8 @@
 
 import { SidebarTrigger } from "@/components/sidebar-provider"
 import { Button } from "@/components/ui/button"
-import { User, Bell } from "lucide-react"
+import { UserButton } from "@clerk/nextjs"
+import { Bell } from "lucide-react"
 
 interface DashboardHeaderProps {
   title: string
@@ -21,7 +22,7 @@ export function DashboardHeader({ title }: DashboardHeaderProps) {
           <span className="sr-only">Notifications</span>
         </Button>
         <Button variant="ghost" size="icon" className="rounded-full">
-          <User className="h-5 w-5" />
+          <UserButton />
           <span className="sr-only">User</span>
         </Button>
       </div>

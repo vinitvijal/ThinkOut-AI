@@ -11,10 +11,16 @@ interface ContentTypeOption {
 interface ContentTypeSelectorProps {
   contentType: string
   options: ContentTypeOption[]
+  setType: (type: string) => void
 }
 
-export function ContentTypeSelector({ contentType, options }: ContentTypeSelectorProps) {
+export function ContentTypeSelector({ options, setType }: ContentTypeSelectorProps) {
   const [selectedOption, setSelectedOption] = useState(options[0]?.id || "")
+
+  const handleOptionChange = (optionId: string) => {
+    setSelectedOption(optionId)
+    setType(optionId)
+  }
 
   return (
     <div className="space-y-4">
@@ -23,7 +29,7 @@ export function ContentTypeSelector({ contentType, options }: ContentTypeSelecto
           <Button
             key={option.id}
             variant={selectedOption === option.id ? "default" : "outline"}
-            onClick={() => setSelectedOption(option.id)}
+            onClick={() => handleOptionChange(option.id)}
             className="transition-all"
           >
             {option.label}
