@@ -20,7 +20,7 @@ export default function DashboardLayout({
         <div className=" h-screen w-64">
             <DashboardSidebar />
         </div>
-        <div className=" flex-1 overflow-y-auto bg-background min-h-screen">
+        <div className=" flex-1 bg-background h-screen">
             {children}
         </div>
         
