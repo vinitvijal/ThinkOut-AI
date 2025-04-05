@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Send } from "lucide-react"
+import { Mic, Send } from "lucide-react"
 
 
 export function InputBar({ handleSubmit }: { handleSubmit: (input: string) => void }) {
@@ -26,6 +26,10 @@ export function InputBar({ handleSubmit }: { handleSubmit: (input: string) => vo
                     }}
                 />
                 <div className="flex gap-2">
+                <Button variant="outline" size="icon"  className="h-10 w-10 shrink-0">
+                    <Mic className="h-5 w-5" />
+                    <span className="sr-only">Start recording</span>
+                </Button>
                     <Button onClick={() => handleSubmit(input)} size="icon" className="h-10 w-10 shrink-0" disabled={!input.trim()}>
                         <Send className="h-5 w-5" />
                         <span className="sr-only">Send</span>
