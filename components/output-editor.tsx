@@ -50,7 +50,7 @@ export function OutputEditor({ placeholder, initialContent }: OutputEditorProps)
   }
 
   return (
-    <div className="space-y-4 flex flex-col  flex-1 h-full">
+    <div className="space-y-4 flex flex-col  flex-1">
       <div className="aa flex justify-end gap-2">
         <Button variant="outline" size="sm" onClick={handleCopy} disabled={!content}>
           {copied ? (

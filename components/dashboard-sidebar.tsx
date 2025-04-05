@@ -11,7 +11,7 @@ import {
   useSidebar,
 } from "@/components/sidebar-provider"
 import { Button } from "@/components/ui/button"
-import { Sparkles, Linkedin, Mail, MessageSquare, FileText, Settings, User, LogOut } from "lucide-react"
+import { Sparkles, Linkedin, Mail, MessageSquare, FileText, Settings, LogOut } from "lucide-react"
 
 export function DashboardSidebar() {
   const pathname = usePathname()
@@ -79,15 +79,7 @@ export function DashboardSidebar() {
           <div className="py-2">
             <div className="text-xs font-medium text-muted-foreground px-4 py-2">Account</div>
             <div className="space-y-1">
-              <Link href="/dashboard/profile" className="block">
-                <Button
-                  variant={pathname === "/dashboard/profile" ? "secondary" : "ghost"}
-                  className="w-full justify-start"
-                >
-                  <User className="mr-2 h-4 w-4" />
-                  Profile
-                </Button>
-              </Link>
+              
               <Link href="/dashboard/settings" className="block">
                 <Button
                   variant={pathname === "/dashboard/settings" ? "secondary" : "ghost"}
