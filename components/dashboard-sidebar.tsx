@@ -12,8 +12,10 @@ import {
 } from "@/components/sidebar-provider"
 import { Button } from "@/components/ui/button"
 import { Sparkles, Linkedin, Mail, MessageSquare, FileText, Settings, LogOut } from "lucide-react"
+import { SignOutButton } from "@clerk/nextjs"
 
 export function DashboardSidebar() {
+
   const pathname = usePathname()
   const { isMobile } = useSidebar()
 
@@ -93,10 +95,11 @@ export function DashboardSidebar() {
           </div>
         </div>
       </SidebarContent>
-      <SidebarFooter className="p-2">
-        <div className="flex items-center justify-between">
+      <SidebarFooter className="p-2 border-t">
+        <div className="flex items-center justify-center ">
           <Button variant="ghost" size="icon">
             <LogOut className="h-4 w-4" />
+            <SignOutButton />
           </Button>
         </div>
       </SidebarFooter>
