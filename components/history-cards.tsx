@@ -5,7 +5,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Linkedin, Mail, MessageSquare, FileText, ArrowRight, Copy, Check, Book } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { Response } from "@prisma/client"
 
 // Sample history data
