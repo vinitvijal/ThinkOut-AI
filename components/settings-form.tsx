@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -62,26 +61,6 @@ export function SettingsForm() {
         </CardContent>
         <CardFooter>
           <Button>Save Writing Style</Button>
-        </CardFooter>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>API Keys</CardTitle>
-          <CardDescription>Manage your API keys for different AI models.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="openai-key">OpenAI API Key</Label>
-            <Input id="openai-key" type="password" placeholder="Enter your OpenAI API key" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="google-key">Google AI API Key</Label>
-            <Input id="google-key" type="password" placeholder="Enter your Google AI API key" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button>Save API Keys</Button>
         </CardFooter>
       </Card>
     </div>

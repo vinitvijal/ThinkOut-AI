@@ -49,3 +49,17 @@ export async function getResponse(prompt: string, category: catType['cat'], user
     return text
    
 }
+
+
+export async function getAllResponses(userId: string) {
+    const res = await prisma.response.findMany({
+        where: {
+            userId: userId,
+        },
+        orderBy: {
+            createdAt: 'desc',
+        },
+    })
+
+    return res
+}
