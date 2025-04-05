@@ -1,8 +1,19 @@
+import { currentUser } from '@clerk/nextjs/server'
 import { DashboardHeader } from "@/components/dashboard-header"
 import { StatsCards } from "@/components/stats-cards"
 import { HistoryCards } from "@/components/history-cards"
+import { getAllResponses } from '@/actions/server'
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const user = await currentUser()
+  if (!user) {
+    return <div>Please log in to view your dashboard.</div>
+  }
+  const userId = user.primaryEmailAddress?.emailAddress
+  if (!userId) {
+    return <div>User ID not found.</div>
+  }
+  const userData = await getAllResponses(userId);
   return (
     <>
       <DashboardHeader title="Dashboard" />
@@ -17,7 +28,7 @@ export default function DashboardPage() {
 
           <div>
             <h2 className="text-xl font-semibold mb-4">Recent Generations</h2>
-            <HistoryCards />
+            <HistoryCards history={userData} />
           </div>
         </div>
       </main>
